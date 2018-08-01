@@ -33,12 +33,15 @@ class MultipleItemsViewController: UIViewController {
         animator.addBehavior(dynamicItemBehavior)
     }
     
-    // Create View with random positions and color
+    // Create View with random positions and color with tap gesture
     func createView() -> UIView {
         let x = randomNumber(min: 0, max: view.bounds.width)
         let frame = CGRect(x: CGFloat(x), y: 0, width: 40, height: 40)
         let squareView = UIView(frame: frame)
         squareView.backgroundColor = randomColor()
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MultipleItemsViewController.squareViewTapped(gestureRecognizer:)))
+        squareView.addGestureRecognizer(tapGestureRecognizer)
         return squareView
     }
     
@@ -63,5 +66,13 @@ class MultipleItemsViewController: UIViewController {
         let squareView = createView()
         view.addSubview(squareView)
         addDynamicBehaviorsToView(view: squareView)
+    }
+    
+    @objc func squareViewTapped(gestureRecognizer: UITapGestureRecognizer) {
+        if let view = gestureRecognizer.view {
+            let pushBehavior = UIPushBehavior(items: [view], mode: .instantaneous)
+            pushBehavior.pushDirection = CGVector(dx: randomNumber(min: -4, max: 4), dy: randomNumber(min: -4, max: 4))
+            animator.addBehavior(pushBehavior)
+        }
     }
 }
