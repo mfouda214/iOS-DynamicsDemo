@@ -30,13 +30,17 @@ class SingleItemViewController: UIViewController {
         view.addSubview(blueSquareView)
     }
 
-    @IBAction func addBehaviorButtonTapped(_ sender: AnyObject) {
+    @IBAction func addBehaviorButtonTapped(sender: AnyObject) {
         let gravityBehavior = UIGravityBehavior(items: [blueSquareView])
         animator.addBehavior(gravityBehavior)
         
         let collisionBehavior = UICollisionBehavior(items: [blueSquareView])
         collisionBehavior.translatesReferenceBoundsIntoBoundary = true
         animator.addBehavior(collisionBehavior)
+        
+        let dynamicItemBehavior = UIDynamicItemBehavior(items: [blueSquareView])
+        dynamicItemBehavior.elasticity = 0.6;
+        animator.addBehavior(dynamicItemBehavior)
     }
 }
 
