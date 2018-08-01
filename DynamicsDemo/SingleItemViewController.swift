@@ -30,7 +30,7 @@ class SingleItemViewController: UIViewController {
         view.addSubview(blueSquareView)
     }
 
-    @IBAction func addBehaviorButtonTapped(sender: AnyObject) {
+    @IBAction func addBehaviorButtonTapped(_ sender: AnyObject) {
         let gravityBehavior = UIGravityBehavior(items: [blueSquareView])
         animator.addBehavior(gravityBehavior)
         
