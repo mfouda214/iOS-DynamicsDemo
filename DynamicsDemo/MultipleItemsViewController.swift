@@ -10,7 +10,12 @@
 import UIKit
 
 class MultipleItemsViewController: UIViewController {
-
+    
+    // Add Di=ynamic Animator
+    lazy var animator: UIDynamicAnimator = {
+        return UIDynamicAnimator(referenceView: self.view)
+    }()
+    
     @IBAction func addViewButtonTapped(_ sender: AnyObject) {
         
     }
