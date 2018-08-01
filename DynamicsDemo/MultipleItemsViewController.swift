@@ -16,6 +16,14 @@ class MultipleItemsViewController: UIViewController {
         return UIDynamicAnimator(referenceView: self.view)
     }()
     
+    // Create View
+    func createView() -> UIView {
+        let frame = CGRect(x: 50, y: 0, width: 40, height: 40)
+        let squareView = UIView(frame: frame)
+        squareView.backgroundColor = .blue
+        return squareView
+    }
+    
     @IBAction func addViewButtonTapped(_ sender: AnyObject) {
         
     }
