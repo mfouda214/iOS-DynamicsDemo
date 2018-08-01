@@ -12,6 +12,11 @@ import UIKit
 class SingleItemViewController: UIViewController {
     let blueSquareView = UIView()
     
+    // Add Dynamic Animator
+    lazy var animator: UIDynamicAnimator = {
+        return UIDynamicAnimator(referenceView: self.view)
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
